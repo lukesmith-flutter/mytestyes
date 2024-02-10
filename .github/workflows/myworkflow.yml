@@ -1,3 +1,4 @@
+name: MyDeploymentWorkflow
 on:
   workflow_dispatch:
 
