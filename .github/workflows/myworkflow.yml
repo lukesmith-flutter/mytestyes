@@ -13,7 +13,7 @@ jobs:
       with:
         fetch-depth: 0
     - name: foo
-      uses: ./.github/build@v1  
+      uses: ./.github/actions/build@v1  
 
     - name: Use variables
       env:
