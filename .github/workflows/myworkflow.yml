@@ -21,7 +21,6 @@ jobs:
         echo "repository variable : $REPOSITORY_VAR"
         echo "repository variable : ${{ vars.DEPLOYMENT_ROLE }}"
         cat myfile.txt
-        cdktf -v
         echo "${{ vars.BUILD_ROLE }}"
         echo "${{ vars.DEPLOYMENT_ROLE }}"
         echo "${{ vars.TARGET_ACCOUNT }}"
@@ -50,7 +49,6 @@ jobs:
         echo "repository variable : $REPOSITORY_VAR"
         echo "repository variable : ${{ vars.DEPLOYMENT_ROLE }}"
         cat myfile.txt
-        cdktf -v
         echo "${{ vars.BUILD_ROLE }}"
         echo "${{ vars.DEPLOYMENT_ROLE }}"
         echo "${{ vars.TARGET_ACCOUNT }}"
