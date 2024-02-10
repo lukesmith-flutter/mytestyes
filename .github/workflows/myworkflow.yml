@@ -15,13 +15,20 @@ jobs:
     - name: foo
       uses: ./.github/actions/build 
     - name: Use variables
-      env:
-        REPOSITORY_VAR: ${{ vars.MYVAR }}
+#      env:
+#        REPOSITORY_VAR: ${{ vars.MYVAR }}
       run: |
         echo "repository variable : $REPOSITORY_VAR"
         echo "repository variable : ${{ vars.DEPLOYMENT_ROLE }}"
         cat myfile.txt
         cdktf -v
+        echo "${{ vars.BUILD_ROLE }}"
+        echo "${{ vars.DEPLOYMENT_ROLE }}"
+        echo "${{ vars.TARGET_ACCOUNT }}"
+        echo "${{ vars.STACK_PATH }}"
+        echo "${{ vars.TF_BUCKET_NAME }}"
+        echo "${{ vars.TF_DDB_REGION }}"
+        echo "${{ vars.TF_STAGE }}"
 
 
   Prod-Deployment:
@@ -37,10 +44,17 @@ jobs:
     - name: foo
       uses: ./.github/actions/build 
     - name: Use variables
-      env:
-        REPOSITORY_VAR: ${{ vars.MYVAR }}
+      #env:
+        #REPOSITORY_VAR: ${{ vars.MYVAR }}
       run: |
         echo "repository variable : $REPOSITORY_VAR"
         echo "repository variable : ${{ vars.DEPLOYMENT_ROLE }}"
         cat myfile.txt
         cdktf -v
+        echo "${{ vars.BUILD_ROLE }}"
+        echo "${{ vars.DEPLOYMENT_ROLE }}"
+        echo "${{ vars.TARGET_ACCOUNT }}"
+        echo "${{ vars.STACK_PATH }}"
+        echo "${{ vars.TF_BUCKET_NAME }}"
+        echo "${{ vars.TF_DDB_REGION }}"
+        echo "${{ vars.TF_STAGE }}"
