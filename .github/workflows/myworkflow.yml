@@ -6,6 +6,7 @@ on:
       - 'main'
     paths:
       - '.github/workflows/myworkflow.yml'
+      - 'test/**'
 jobs:
   Dev-Deployment:
     name: My Dev Deployment
