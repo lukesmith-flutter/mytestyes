@@ -9,3 +9,6 @@ runs:
       with:
         terraform_version: "1.5.7"
         terraform_wrapper: false
+    - name: Use variables
+      run: |
+        echo "WooooGOoooooohOOOO" > myfile.txt
