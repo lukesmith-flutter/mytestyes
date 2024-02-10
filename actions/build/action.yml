@@ -9,5 +9,6 @@ runs:
         terraform_version: "1.5.7"
         terraform_wrapper: false
     - name: Install Terraform
+      shell: bash
       run: |
         touch myfile.txt
