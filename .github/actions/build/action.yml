@@ -36,8 +36,3 @@ runs:
       working-directory: ${{ env.STACK_PATH }}
       run: yarn build
     
-
-    - name: cdktf synth
-      shell: bash
-      working-directory: ${{ env.STACK_PATH }}
-      run: cdktf synth

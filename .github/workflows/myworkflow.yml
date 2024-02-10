@@ -12,15 +12,15 @@ jobs:
       STACK_PATH: "test"
       STACK_NAME: "MyTestStack"
     steps:
-    - name: Checkout
+    - name: Checkout Repo
       uses: actions/checkout@v4.0.0
       with:
         fetch-depth: 0
-    - name: foo
+
+    - name: Install Dependancies
       uses: ./.github/actions/build 
-    - name: Use variables
-#      env:
-#        REPOSITORY_VAR: ${{ vars.MYVAR }}
+
+    - name: Show Variables
       run: |
         echo "repository variable : $REPOSITORY_VAR"
         echo "repository variable : ${{ vars.DEPLOYMENT_ROLE }}"
@@ -34,11 +34,14 @@ jobs:
         echo "${{ vars.TF_STAGE }}"
 
 
+
+
   Prod-Deployment:
     name: My Prod Deployment
     # You can use configuration variables with the `vars` context for dynamic jobs
     runs-on: ubuntu-22.04
     environment: Prod
+    needs: Dev-Deployment
     env:
       STACK_PATH: "test"
       STACK_NAME: "MyTestStack"
