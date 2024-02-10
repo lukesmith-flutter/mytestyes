@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-22.04
     environment: Dev
     steps:
+    - name: Checkout
+      uses: actions/checkout@v4.0.0
+      with:
+        fetch-depth: 0
     - name: Use variables
       env:
         REPOSITORY_VAR: ${{ vars.MYVAR }}
