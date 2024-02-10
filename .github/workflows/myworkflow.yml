@@ -3,16 +3,13 @@ on:
 
 jobs:
   display-variables:
-    name: ${{ vars.JOB_NAME }}
+    name: MyName
     # You can use configuration variables with the `vars` context for dynamic jobs
-    if: ${{ vars.USE_VARIABLES == 'true' }}
     runs-on: ubuntu-22.04
     environment: Dev
     steps:
     - name: Use variables
       env:
         REPOSITORY_VAR: ${{ vars.MYVAR }}
-        ORGANIZATION_VAR: ${{ vars.ORGANIZATION_VAR }}
-        OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}
       run: |
         echo "repository variable : $REPOSITORY_VAR"
