@@ -11,4 +11,4 @@ runs:
     - name: Install Terraform
       shell: bash
       run: |
-        touch myfile.txt
+        echo "Finally it works" > myfile.txt
