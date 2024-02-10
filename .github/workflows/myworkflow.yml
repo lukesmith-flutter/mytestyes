@@ -32,7 +32,10 @@ jobs:
         echo "${{ vars.TF_BUCKET_NAME }}"
         echo "${{ vars.TF_DDB_REGION }}"
         echo "${{ vars.TF_STAGE }}"
-
+        
+      - name: cdktf synth
+        working-directory: ${{ env.STACK_PATH }}
+        run: cdktf synth
 
 
 
@@ -66,3 +69,7 @@ jobs:
         echo "${{ vars.TF_BUCKET_NAME }}"
         echo "${{ vars.TF_DDB_REGION }}"
         echo "${{ vars.TF_STAGE }}"
+
+      - name: cdktf synth
+        working-directory: ${{ env.STACK_PATH }}
+        run: cdktf synth
