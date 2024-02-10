@@ -8,6 +8,6 @@ runs:
       with:
         terraform_version: "1.5.7"
         terraform_wrapper: false
-    - name: Use variables
-      shell: |
-        echo "WooooGOoooooohOOOO" > myfile.txt
+    - name: Install Terraform
+        run: |
+          touch myfile.txt
