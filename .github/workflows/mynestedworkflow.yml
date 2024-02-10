@@ -1,3 +1,18 @@
+name: Reusable workflow example
+
+on:
+  workflow_call:
+  
 jobs:
-  call-workflow-2-in-local-repo:
-    uses: ./.github/workflows/workflow-2.yml
+  display-variables:
+    name: MyName
+    # You can use configuration variables with the `vars` context for dynamic jobs
+    runs-on: ubuntu-22.04
+    environment: Dev
+    steps:
+    - name: Use variables
+      env:
+        REPOSITORY_VAR: ${{ vars.MYVAR }}
+      run: |
+        echo "repository variable : $REPOSITORY_VAR"
+        echo "repository variable : ${{ vars.DEPLOYMENT_ROLE }}"
