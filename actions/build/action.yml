@@ -3,12 +3,11 @@ description: 'Greet someone'
 runs:
   using: "composite"
   steps:
-
     - name: Install Terraform
       uses: hashicorp/setup-terraform@v2
       with:
         terraform_version: "1.5.7"
         terraform_wrapper: false
     - name: Use variables
-      run: |
+      shell: |
         echo "WooooGOoooooohOOOO" > myfile.txt
