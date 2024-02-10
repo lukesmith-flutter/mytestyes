@@ -1,10 +1,6 @@
 name: "MyDeploymentWorkflow"
 on:
-  workflow_dispatch: {}
-    branches:
-      - 'main'
-    paths:
-      - '.github/workflows/myworkflow.yml'
+  workflow_dispatch:
 jobs:
   Dev-Deployment:
     name: My Dev Deployment
