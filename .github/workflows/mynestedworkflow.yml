@@ -1,18 +1,22 @@
-name: Reusable workflow example
+name: Build Image
 
 on:
   workflow_call:
   
 jobs:
-  display-variables:
-    name: MyName
-    # You can use configuration variables with the `vars` context for dynamic jobs
+  cdk_build:
+    name: cdktf Build
     runs-on: ubuntu-22.04
-    environment: Dev
+
     steps:
-    - name: Use variables
-      env:
-        REPOSITORY_VAR: ${{ vars.MYVAR }}
-      run: |
-        echo "repository variable : $REPOSITORY_VAR"
-        echo "repository variable : ${{ vars.DEPLOYMENT_ROLE }}"
+      - name: Checkout
+        uses: actions/checkout@v4.0.0
+        with:
+          fetch-depth: 0
+
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: "1.5.7"
+          terraform_wrapper: false
+      
