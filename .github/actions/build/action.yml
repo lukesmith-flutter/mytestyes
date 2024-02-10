@@ -11,10 +11,33 @@ runs:
       shell: bash
       run: |
         echo "Finally it works" > myfile.txt
+        echo "${{ env.STACK_PATH }}"
+    - name: Install cdktf-cli
+      shell: bash
+      run:  yarn global add cdktf-cli@0.19.0
+
     - name: yarn install
       shell: bash
+      working-directory: ${{ env.STACK_PATH }}
       run: yarn install
       
     - name: Install cdktf-cli
       shell: bash
+      working-directory: ${{ env.STACK_PATH }}
       run:  yarn global add cdktf-cli@0.19.0
+
+    - name: cdktf get
+      shell: bash
+      working-directory: ${{ env.STACK_PATH }}
+      run: cdktf get
+
+    - name: Yarn Build
+      shell: bash
+      working-directory: ${{ env.STACK_PATH }}
+      run: yarn build
+    
+
+    - name: cdktf synth
+      shell: bash
+      working-directory: ${{ env.STACK_PATH }}
+      run: cdktf synth
