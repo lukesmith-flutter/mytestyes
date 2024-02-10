@@ -1,5 +1,4 @@
-name: 'Hello World'
-description: 'Greet someone'
+name: 'Install Packages & Dependancies'
 runs:
   using: "composite"
   steps:

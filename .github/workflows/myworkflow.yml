@@ -2,8 +2,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  display-variables:
-    name: My Workflow
+  Dev-Deployment:
+    name: My Dev Deployment
     # You can use configuration variables with the `vars` context for dynamic jobs
     runs-on: ubuntu-22.04
     environment: Dev
@@ -14,7 +14,28 @@ jobs:
         fetch-depth: 0
     - name: foo
       uses: ./.github/actions/build 
+    - name: Use variables
+      env:
+        REPOSITORY_VAR: ${{ vars.MYVAR }}
+      run: |
+        echo "repository variable : $REPOSITORY_VAR"
+        echo "repository variable : ${{ vars.DEPLOYMENT_ROLE }}"
+        cat myfile.txt
+        cdktf -v
 
+
+  Prod-Deployment:
+    name: My Prod Deployment
+    # You can use configuration variables with the `vars` context for dynamic jobs
+    runs-on: ubuntu-22.04
+    environment: Prod
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4.0.0
+      with:
+        fetch-depth: 0
+    - name: foo
+      uses: ./.github/actions/build 
     - name: Use variables
       env:
         REPOSITORY_VAR: ${{ vars.MYVAR }}
