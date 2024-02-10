@@ -13,3 +13,4 @@ jobs:
         REPOSITORY_VAR: ${{ vars.MYVAR }}
       run: |
         echo "repository variable : $REPOSITORY_VAR"
+        echo "repository variable : ${{ vars.DEPLOYMENT_ROLE }}"
