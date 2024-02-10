@@ -1,6 +1,9 @@
 name: "MyDeploymentWorkflow"
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - 'main'
 jobs:
   Dev-Deployment:
     name: My Dev Deployment
