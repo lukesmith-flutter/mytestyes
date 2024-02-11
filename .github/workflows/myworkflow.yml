@@ -39,9 +39,7 @@ jobs:
 
     - name: Show Variables
       run: |
-        echo "repository variable : $REPOSITORY_VAR"
         echo "repository variable : ${{ vars.DEPLOYMENT_ROLE }}"
-        cat myfile.txt
         echo "${{ vars.BUILD_ROLE }}"
         echo "${{ vars.DEPLOYMENT_ROLE }}"
         echo "${{ vars.TARGET_ACCOUNT }}"
