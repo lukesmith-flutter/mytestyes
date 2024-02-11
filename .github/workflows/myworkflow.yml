@@ -18,6 +18,7 @@ on:
 
 env:
   myvar: 'hello123'
+  myenviro: ${{ github.ref == 'refs/heads/main' && 'Prod' || 'Dev' }}
   
 jobs:
   Build-Deployment:
