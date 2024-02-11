@@ -33,7 +33,9 @@ jobs:
         fetch-depth: 0
 
     - name: Install Dependancies
-      uses: ./.github/actions/build 
+      uses: ./.github/actions/build
+      with:
+        - terraform_version: 1.5.9
 
     - name: Show Variables
       run: |
