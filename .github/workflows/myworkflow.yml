@@ -15,7 +15,10 @@ on:
   pull_request:
     branches:
       - 'main'
-      
+
+env:
+  myvar: 'hello123'
+  
 jobs:
   Build-Deployment:
     name: My Deployment
@@ -47,6 +50,7 @@ jobs:
         echo "${{ vars.TF_BUCKET_NAME }}"
         echo "${{ vars.TF_DDB_REGION }}"
         echo "${{ vars.TF_STAGE }}"
+        echo "${{ env.myvar }}"
 
     - name: cdktf synth
       working-directory: ${{ env.STACK_PATH }}
