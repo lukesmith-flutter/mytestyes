@@ -50,6 +50,8 @@ jobs:
         echo "${{ vars.TF_STAGE }}"
         echo "${{ env.myvar }}"
         echo "${{ env.myenvo}}"
+        echo "${{ jobs.Build-Deployment.environment }} It Worked"
+  
 
     - name: cdktf synth
       working-directory: ${{ env.STACK_PATH }}
