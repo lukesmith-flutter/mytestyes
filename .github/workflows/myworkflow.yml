@@ -7,6 +7,9 @@ on:
     paths:
       - '.github/workflows/myworkflow.yml'
       - 'test/**'
+  pull_request:
+    branches:
+      - 'main'
 jobs:
   Dev-Deployment:
     name: My Dev Deployment
