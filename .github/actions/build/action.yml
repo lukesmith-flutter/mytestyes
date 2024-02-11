@@ -4,7 +4,7 @@ inputs:
     description: 'Version of Terraform to Use'
     required: true
     default: '1.5.7'
-  cdktf-cli_version: 
+  cdktfcli_version: 
     description: 'Version of CDKTF-CLI to Use'
     required: true
     default: '0.19.0'
@@ -25,7 +25,7 @@ runs:
     - name: Install cdktf-cli
       shell: bash
       working-directory: ${{ env.STACK_PATH }}
-      run:  yarn global add cdktf-cli@${{ inputs.cdktf-cli_version }}
+      run:  yarn global add cdktf-cli@${{ inputs.cdktfcli_version }}
 
     - name: cdktf get
       shell: bash
