@@ -18,6 +18,7 @@ on:
 
 env:
   myvar: 'hello123'
+  myenvo: ${{ github.ref == 'refs/heads/main' && 'Prod' || 'Dev' }}
   
 jobs:
   Build-Deployment:
@@ -51,6 +52,7 @@ jobs:
         echo "${{ vars.TF_DDB_REGION }}"
         echo "${{ vars.TF_STAGE }}"
         echo "${{ env.myvar }}"
+        echo "${{ env.myenvo}}"
 
     - name: cdktf synth
       working-directory: ${{ env.STACK_PATH }}
