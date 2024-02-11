@@ -51,6 +51,7 @@ jobs:
         echo "${{ env.myvar }}"
         echo "${{ env.myenvo}}"
         echo "${{ job.environment }} It Worked"
+        echo "${{ toJson(job) }}"
   
 
     - name: cdktf synth
