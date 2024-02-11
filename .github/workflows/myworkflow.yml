@@ -33,13 +33,13 @@ jobs:
         fetch-depth: 0
 
     - name: Install Dependancies
-      uses: ./.github/actions/build 
+      uses: ./.github/actions/build
+      with:
+        terraform_version: '1.5.5'
 
     - name: Show Variables
       run: |
-        echo "repository variable : $REPOSITORY_VAR"
         echo "repository variable : ${{ vars.DEPLOYMENT_ROLE }}"
-        cat myfile.txt
         echo "${{ vars.BUILD_ROLE }}"
         echo "${{ vars.DEPLOYMENT_ROLE }}"
         echo "${{ vars.TARGET_ACCOUNT }}"
