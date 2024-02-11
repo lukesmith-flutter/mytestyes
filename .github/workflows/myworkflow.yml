@@ -16,14 +16,15 @@ on:
     branches:
       - 'main'
 env:
-  enviro: ${{ github.ref == 'refs/heads/main' && 'Prod' || 'Dev' }}
+  SERVER: ${{ github.ref == 'refs/heads/main' && 'Prod' || 'Dev' }}
+
 
 jobs:
   Build-Deployment:
     name: My Deployment
     # You can use configuration variables with the `vars` context for dynamic jobs
     runs-on: ubuntu-22.04
-    environment: ${{ env.enviro }}
+    environment: ${{ env.SERVER }}
     env:
       STACK_PATH: "test"
       STACK_NAME: "MyTestStack"
