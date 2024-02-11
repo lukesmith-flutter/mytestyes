@@ -24,7 +24,7 @@ jobs:
     name: My Deployment
     # You can use configuration variables with the `vars` context for dynamic jobs
     runs-on: ubuntu-22.04
-    environment: ${{ env.DEPLOYMENT_ENVIRONMENT }}
+    environment: "${{ env.DEPLOYMENT_ENVIRONMENT }}"
     env:
       STACK_PATH: "test"
       STACK_NAME: "MyTestStack"
