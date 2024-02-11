@@ -18,18 +18,16 @@ on:
 
 env:
   DEPLOYMENT_ENVIRONMENT: ${{ github.ref == 'refs/heads/main' && 'Prod' || 'Dev' }}
-  
+  STACK_PATH: "test"
+  STACK_NAME: "MyTestStack"
 jobs:
   Build-Deployment:
     name: My Deployment
     # You can use configuration variables with the `vars` context for dynamic jobs
     runs-on: ubuntu-22.04
     environment: "${{ github.ref == 'refs/heads/main' && 'Prod' || 'Dev' }}"
-    env:
-      STACK_PATH: "test"
-      STACK_NAME: "MyTestStack"
-    steps:
 
+    steps:
     - name: Checkout Repo
       uses: actions/checkout@v4.0.0
       with:
