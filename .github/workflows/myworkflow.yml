@@ -25,7 +25,8 @@ jobs:
     name: My Deployment
     # You can use configuration variables with the `vars` context for dynamic jobs
     runs-on: ubuntu-22.04
-    environment: "${{ github.ref == 'refs/heads/main' && 'Prod' || 'Dev' }}"
+    #environment: "${{ github.ref == 'refs/heads/main' && 'Prod' || 'Dev' }}"
+    environment: "${{ env.DEPLOYMENT_ENVIRONMENT }}"
 
     steps:
     - name: Checkout Repo
