@@ -50,6 +50,9 @@ jobs:
         echo "${{ vars.TF_STAGE }}"
         echo "${{ env.myvar }}"
         echo "${{ env.myenvo}}"
+        echo "${{ job.environment }} It Worked"
+        echo "${{ toJson(job) }}"
+  
 
     - name: cdktf synth
       working-directory: ${{ env.STACK_PATH }}
