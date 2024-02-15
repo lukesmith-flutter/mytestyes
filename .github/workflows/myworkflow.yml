@@ -18,15 +18,15 @@ on:
         options:
         - eu-west-1
         - eu-west-2   
-  push:
-    branches:
-      - 'main'
-    paths:
-      - '.github/workflows/myworkflow.yml'
-      - 'test/**'
-  pull_request:
-    branches:
-      - 'main'
+#  push:
+#    branches:
+#      - 'main'
+#    paths:
+#      - '.github/workflows/myworkflow.yml'
+#      - 'test/**'
+#  pull_request:
+#    branches:
+#      - 'main'
 
 env:
   DEPLOYMENT_ENVIRONMENT: ${{ github.ref == 'refs/heads/main' && 'Prod' || 'Dev' }}
