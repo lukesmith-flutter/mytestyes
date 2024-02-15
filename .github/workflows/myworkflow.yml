@@ -31,8 +31,8 @@ on:
 env:
   DEPLOYMENT_ENVIRONMENT: ${{ github.ref == 'refs/heads/main' && 'Prod' || 'Dev' }}
   STACK_PATH: "test"
-  STACK_NAME: "${{ input.Spoke-VPC }}"
-  REGION: "${{ input.Region }}"
+  STACK_NAME: "${{ inputs.Spoke-VPC }}"
+  REGION: "${{ inputs.Region }}"
 jobs:
   Build-Deployment:
     name: My Deployment
