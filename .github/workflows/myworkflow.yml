@@ -6,6 +6,18 @@ on:
         required: true
         type: environment
         default: Dev
+      Spoke-VPC:
+        required: true
+        type: choice
+        options:
+        - MyVPC1
+        - MyVPC2
+      Region:
+        required: true
+        type: choice
+        options:
+        - eu-west-1
+        - eu-west-2   
   push:
     branches:
       - 'main'
@@ -19,7 +31,8 @@ on:
 env:
   DEPLOYMENT_ENVIRONMENT: ${{ github.ref == 'refs/heads/main' && 'Prod' || 'Dev' }}
   STACK_PATH: "test"
-  STACK_NAME: "MyTestStack"
+  STACK_NAME: "${{ input.Spoke-VPC }}"
+  REGION: "${{ input.Region }}"
 jobs:
   Build-Deployment:
     name: My Deployment
