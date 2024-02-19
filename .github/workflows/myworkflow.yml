@@ -6,13 +6,6 @@ on:
         required: true
         type: environment
         default: Dev
-      environment:
-        required: true
-        type: choice
-        options:
-        - prod
-        - dts   
-        - sandbox
       Region:
         required: true
         type: choice
@@ -21,10 +14,10 @@ on:
         - eu-west-2   
       Spoke-VPC:
         required: true
-        type: string
+        type: choice
         options:
-        - MyVPC1
-        - MyVPC2
+        - 115914936256
+        - 115914936257
 #  push:
 #    branches:
 #      - 'main'
