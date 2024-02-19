@@ -2,22 +2,29 @@ name: "MyDeploymentWorkflow"
 on:
   workflow_dispatch:
     inputs:
-      environment:
+      GitHubEnvironment:
         required: true
         type: environment
         default: Dev
-      Spoke-VPC:
+      environment:
         required: true
         type: choice
         options:
-        - MyVPC1
-        - MyVPC2
+        - prod
+        - dts   
+        - sandbox
       Region:
         required: true
         type: choice
         options:
         - eu-west-1
         - eu-west-2   
+      Spoke-VPC:
+        required: true
+        type: string
+        options:
+        - MyVPC1
+        - MyVPC2
 #  push:
 #    branches:
 #      - 'main'
