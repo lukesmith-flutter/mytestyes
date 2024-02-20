@@ -1,4 +1,5 @@
 name: "MyDeploymentWorkflow"
+run-name: Deploy AWS Network Firewall - EU-WEST-1 by @${{ github.actor }}
 on:
   workflow_dispatch:
     inputs:
@@ -6,27 +7,15 @@ on:
         required: true
         type: environment
         default: Dev
-      Region:
-        required: true
-        type: choice
-        options:
-        - eu-west-1
-        - eu-west-2   
-      Spoke-VPC:
-        required: true
-        type: choice
-        options:
-        - 115914936256
-        - 115914936257
-#  push:
-#    branches:
-#      - 'main'
-#    paths:
-#      - '.github/workflows/myworkflow.yml'
-#      - 'test/**'
-#  pull_request:
-#    branches:
-#      - 'main'
+   push:
+     branches:
+       - 'main'
+     paths:
+       - '.github/workflows/myworkflow.yml'
+       - 'test/**'
+   pull_request:
+     branches:
+       - 'main'
 
 env:
   DEPLOYMENT_ENVIRONMENT: ${{ github.ref == 'refs/heads/main' && 'Prod' || 'Dev' }}
