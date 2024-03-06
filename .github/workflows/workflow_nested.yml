@@ -17,8 +17,8 @@ jobs:
     - name: Install Dependancies
       uses: ./.github/actions/build
       with:
-        terraform_version: '1.5.5'
-        cdktfcli_version: '1.7.0'
+        terraform_version: '1.5.7'
+        cdktfcli_version: '0.19.0'
     - name: Show Variables
       run: |
         echo "repository variable : ${{ vars.DEPLOYMENT_ROLE }}"
