@@ -10,4 +10,4 @@ env:
   REGION: "${{ inputs.Region }}"
 jobs:
   Build-Deployment:
-      uses: lukesmith-flutter/mytestyes/.github/workflows/workflow_nested.yml
+      uses: lukesmith-flutter/mytestyes/.github/workflows/workflow_nested.yml@main
