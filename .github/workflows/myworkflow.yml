@@ -2,20 +2,6 @@ name: "MyDeploymentWorkflow"
 run-name: "Deploy AWS Network Firewall - EU-WEST-1 by @${{ github.actor }}"
 on:
   workflow_dispatch:
-    inputs:
-      GitHubEnvironment:
-        required: true
-        type: environment
-        default: Dev
-  push:
-    branches:
-      - 'main'
-    paths:
-      - '.github/workflows/myworkflow.yml'
-      - 'test/**'
-  pull_request:
-    branches:
-      - 'main'
 
 env:
   DEPLOYMENT_ENVIRONMENT: ${{ github.ref == 'refs/heads/main' && 'prod' || github.ref == 'refs/heads/lab' && 'lab' || 'lab' }}
@@ -24,39 +10,4 @@ env:
   REGION: "${{ inputs.Region }}"
 jobs:
   Build-Deployment:
-    name: My Deployment
-    # You can use configuration variables with the `vars` context for dynamic jobs
-    runs-on: ubuntu-22.04
-    environment: "${{ github.ref == 'refs/heads/main' && 'Prod' || 'Dev' }}"
-
-    steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v4.0.0
-      with:
-        fetch-depth: 0
-
-    - name: Install Dependancies
-      uses: ./.github/actions/build
-      with:
-        terraform_version: '1.5.5'
-        cdktfcli_version: '1.7.0'
-    - name: Show Variables
-      run: |
-        echo "repository variable : ${{ vars.DEPLOYMENT_ROLE }}"
-        echo "${{ vars.BUILD_ROLE }}"
-        echo "${{ vars.DEPLOYMENT_ROLE }}"
-        echo "${{ vars.TARGET_ACCOUNT }}"
-        echo "${{ vars.STACK_PATH }}"
-        echo "${{ vars.TF_BUCKET_NAME }}"
-        echo "${{ vars.TF_DDB_REGION }}"
-        echo "${{ vars.TF_STAGE }}"
-        echo "${{ env.myvar }}"
-        echo "${{ env.myenvo}}"
-        echo "${{ job.environment }} It Worked"
-        echo "${{ toJson(job) }}"
-  
-
-    - name: cdktf synth
-      working-directory: ${{ env.STACK_PATH }}
-      run: cdktf synth
-      if: "${{ env.DEPLOYMENT_ENVIRONMENT == 'Dev'}}"
+      uses: lukesmith-flutter/mytestyes/.github/workflows/workflow_nested.yml
