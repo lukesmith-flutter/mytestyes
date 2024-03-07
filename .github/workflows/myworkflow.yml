@@ -15,14 +15,17 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        region: [euw1]
-        Stack: [StackVPC1,StackVPC1,StackVPC2,StackVPC3,StackVPC4]
+        include:
+          - region: "IDN-EUW1"
+            stack: "site-a"
+          - region: "IDN-APSE2"
+            stack: "site-b"
     steps:
       - name: Show Variables
         env:
           STACK_PATH: ${{ matrix.Stack }}
         run: |
           echo "repository variable : ${{ matrix.region }}"
-          echo "repository variable : ${{ matrix.Stack }}"
+          echo "repository variable : ${{ matrix.stack }}"
 # uses: lukesmith-flutter/mytestyes/.github/workflows/workflow_nested.yml@main
     
