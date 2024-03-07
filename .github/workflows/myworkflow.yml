@@ -14,7 +14,7 @@ jobs:
       matrix:
         region: [euw1]
         Stack: [StackVPC1]
-    tasks:
+    steps:
       - name: Show Variables
         run: |
           echo "repository variable : ${{ matrix.region }}"
