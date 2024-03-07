@@ -14,5 +14,9 @@ jobs:
       matrix:
         region: [euw1]
         Stack: [StackVPC1]
-      uses: lukesmith-flutter/mytestyes/.github/workflows/workflow_nested.yml@main
+    tasks:
+      - name: Show Variables
+        run: |
+          echo "repository variable : ${{ matrix.region }}"
+      # uses: lukesmith-flutter/mytestyes/.github/workflows/workflow_nested.yml@main
     
