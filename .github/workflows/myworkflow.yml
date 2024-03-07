@@ -10,4 +10,9 @@ env:
   REGION: "${{ inputs.Region }}"
 jobs:
   Build-Deployment:
+    strategy:
+      matrix:
+        region: [euw1]
+        Stack: [StackVPC1]
       uses: lukesmith-flutter/mytestyes/.github/workflows/workflow_nested.yml@main
+    
