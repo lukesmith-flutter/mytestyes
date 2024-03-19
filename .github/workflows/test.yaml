@@ -1,17 +1,25 @@
 on:
   workflow_dispatch:
     inputs:
-      products:
-        description: "List of Products"
-        default: '["yellow"]'
-      limits:
-        description: "List of limits"
-        default: '[50]'
+      Spoke-VPC:
+        type: choice
+        description: Dev Spoke VPC
+        options: 
+        - all
+        - mydev_vpc1
+        - mydev_vpc2
+        - mydev_vpc3
+        - mydev_vpc4
+        - mydev_vpc5
+        - mydev_vpc6
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        product: ${{ fromJSON(github.event.inputs.products)}}
-        limits: ${{ fromJSON(github.event.inputs.limits) }}
+        product: ${{ fromList(github.event.inputs.Spoke-VPC)}}
+    steps:
+    - name: Hold
+      run: |
+        echo "Hold"
