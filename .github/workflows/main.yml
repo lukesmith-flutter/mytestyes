@@ -2,6 +2,9 @@ on:
   workflow_dispatch: {}
   pull_request:
     types: [opened, closed, reopened]
+  push:
+    branches:
+      - main
         
 jobs:
   prJob:    
@@ -10,4 +13,4 @@ jobs:
     steps:
       - name: Print GitHub event action
         run: |
-          echo "${{ github.event.action }}"
+          echo "${{ github.event_name }}"
