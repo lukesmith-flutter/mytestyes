@@ -20,12 +20,12 @@ jobs:
             stack: "site-a"
           - region: "IDN-APSE2"
             stack: "site-b"
+  prJob:    
+    name: Print info
+    runs-on: ubuntu-latest
     steps:
-      - name: Show Variables
-        env:
-          STACK_PATH: ${{ matrix.Stack }}
+      - name: Print GitHub event action
         run: |
-          echo "repository variable : ${{ matrix.region }}"
-          echo "repository variable : ${{ matrix.stack }}"
+          echo "${{ github.event.action }}"
 # uses: lukesmith-flutter/mytestyes/.github/workflows/workflow_nested.yml@main
     
