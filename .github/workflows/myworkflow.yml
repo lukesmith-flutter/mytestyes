@@ -27,5 +27,4 @@ jobs:
       - name: Print GitHub event action
         run: |
           echo "${{ github.event.action }}"
-# uses: lukesmith-flutter/mytestyes/.github/workflows/workflow_nested.yml@main
     
