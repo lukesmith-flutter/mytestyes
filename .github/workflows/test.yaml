@@ -5,9 +5,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    
+
     - name: Checkout tools repo
       uses: actions/checkout@v4
       with:
@@ -19,13 +17,10 @@ jobs:
         ref: refs/tags/v1.0.1
         path: v11
 
-    # - name: List Files in Each Directory
-    #   run: |
-    #     find . -type d -exec sh -c 'echo "Directory: {}"; ls -l "{}"' \;
-    - name: List Files in Each Directory
+    - name: Read File in v1 
       run: |
         cat v1/README.md
 
-    - name: List Files in Each Directory
+    - name: Read File in v1.0.1
       run: |
         cat v11/README.md
