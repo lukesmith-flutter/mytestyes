@@ -18,3 +18,7 @@ jobs:
       with:
         ref: refs/tags/v1.0.1
         path: v11
+
+    - name: List Files in Each Directory
+      run: |
+        find . -type d -exec sh -c 'echo "Directory: {}"; ls -l "{}"' \;
