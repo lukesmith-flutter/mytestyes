@@ -1,25 +1,20 @@
 on:
   workflow_dispatch:
-    inputs:
-      Spoke-VPC:
-        type: choice
-        description: Dev Spoke VPC
-        options: 
-        - all
-        - mydev_vpc1
-        - mydev_vpc2
-        - mydev_vpc3
-        - mydev_vpc4
-        - mydev_vpc5
-        - mydev_vpc6
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        product: ${{ fromList(github.event.inputs.Spoke-VPC)}}
     steps:
-    - name: Hold
-      run: |
-        echo "Hold"
+    - name: Checkout
+      uses: actions/checkout@v4
+    
+    - name: Checkout tools repo
+      uses: actions/checkout@v4
+      with:
+        ref: refs/tags/v1.0.0
+        path: v1
+    - name: Checkout tools repo
+      uses: actions/checkout@v4
+      with:
+        ref: refs/tags/v1.0.1
+        path: v11
