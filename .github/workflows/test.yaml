@@ -9,18 +9,18 @@ jobs:
     - name: Checkout tools repo
       uses: actions/checkout@v4
       with:
-        ref: refs/tags/v1.0.0
-        path: v1
+        ref: refs/tags/v1.0.3
+        path: v103
     - name: Checkout tools repo
       uses: actions/checkout@v4
       with:
-        ref: refs/tags/v1.0.1
-        path: v11
+        ref: refs/tags/v1.0.4
+        path: v104
 
-    - name: Read File in v1 
+    - name: Read File in v1.0.3
       run: |
-        cat v1/README.md
+        cat v103/README.md
 
-    - name: Read File in v1.0.1
+    - name: Read File in v1.0.4
       run: |
-        cat v11/README.md
+        cat v104/README.md
